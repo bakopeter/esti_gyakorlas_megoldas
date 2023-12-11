@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Az elveszett címer",
+    "author": "Jókai Mór",
+    "year": 1866,
+    "price": 3490
+  },
+  {
+    "id": 2,
+    "title": "Egri csillagok",
+    "author": "Gárdonyi Géza",
+    "year": 1899,
+    "price": 2790
+  },
+  {
+    "id": 3,
+    "title": "Tüskevár",
+    "author": "Móra Ferenc",
+    "year": 1923,
+    "price": 1890
+  },
+  {
+    "id": 4,
+    "title": "A Pál utcai fiúk",
+    "author": "Molnár Ferenc",
+    "year": 1906,
+    "price": 3190
+  },
+  {
+    "id": 5,
+    "title": "Az arany ember",
+    "author": "Jókai Mór",
+    "year": 1872,
+    "price": 3690
+  },
+  {
+    "id": 6,
+    "title": "Első szerelem",
+    "author": "Turgenev Iván",
+    "year": 1860,
+    "price": 2590
+  },
+  {
+    "id": 7,
+    "title": "Vörös és fekete",
+    "author": "Stendhal",
+    "year": 1830,
+    "price": 2990
+  },
+  {
+    "id": 8,
+    "title": "A két torony",
+    "author": "J.R.R. Tolkien",
+    "year": 1954,
+    "price": 4590
+  },
+  {
+    "id": 9,
+    "title": "A Gyűrűk Ura",
+    "author": "J.R.R. Tolkien",
+    "year": 1954,
+    "price": 5990
+  },
+  {
+    "id": 10,
+    "title": "Az alkimista",
+    "author": "Paulo Coelho",
+    "year": 1988,
+    "price": 2490
+  },
+  {
+    "id": 11,
+    "title": "A vadon szava",
+    "author": "Jack London",
+    "year": 1903,
+    "price": 3190
+  },
+  {
+    "id": 12,
+    "title": "Az időgép",
+    "author": "H.G. Wells",
+    "year": 1895,
+    "price": 2290
+  },
+  {
+    "id": 13,
+    "title": "Az ötödik hegy",
+    "author": "Paulo Coelho",
+    "year": 1996,
+    "price": 2690
+  },
+  {
+    "id": 14,
+    "title": "A holnap háza",
+    "author": "William Faulkner",
+    "year": 1935,
+    "price": 3790
+  },
+  {
+    "id": 15,
+    "title": "A katedrális",
+    "author": "Jussi Adler-Olsen",
+    "year": 2012,
+    "price": 3190
+  },
+  {
+    "id": 16,
+    "title": "A JS csodás világa",
+    "author": "Duffka Erik ",
+    "year": "2023",
+    "price": "1"
+  },
+  {
+    "id": 17,
+    "title": "A JS csodás világa",
+    "author": "Duffka Erik ",
+    "year": "2023",
+    "price": "1"
+  },
+  {
+    "id": 18,
+    "title": "A JS csodás világa",
+    "author": "Duffka Erik ",
+    "year": "2023",
+    "price": "1"
+  },
+  {
+    "id": 19,
+    "title": "A JS csodás világa",
+    "author": "Duffka Erik ",
+    "year": "2023",
+    "price": "1"
+  },
+  {
+    "id": 20,
+    "title": "A JS csodás világa",
+    "author": "Duffka Erik ",
+    "year": "2023",
+    "price": "1"
+  }
+]
