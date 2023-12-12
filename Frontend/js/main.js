@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let addNewBook = document.getElementById('addNewBook');
     let updateBook = document.getElementById('updateBook');
     let deleteBook = document.getElementById('deleteBook');
+    let cartForm = document.getElementById('cartForm');
+    let cartList = document.getElementById('cartList');
     const handlError = (error) => {
         console.log('Hiba: ', error);
     }
@@ -65,4 +67,35 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBook.reset();
     })
     updateBooksData();
+
+    //const cart = [];
+    let sumTotal = 0;
+
+    const renderCartRow = (element) => {
+        sumTotal += Number(element.price);
+        const row = document.createElement('li');
+        row.className = "list-group-item d-flex justify-content-between align-items-center";
+        row.innerHTML = `<span>${element.title}</span><span>${element.price} Ft</span>`;
+        cartList.appendChild(row);
+    }
+
+    const updateCartData = (id) => {
+        fetch('http://localhost:3000/books')
+            .then(response => response.json())
+            .then(data => {
+                //cartList.innerHTML = "";
+                data.forEach(row => {if (row.id == id) renderCartRow(row)});
+            })
+            .catch(handlError);
+    }
+
+    tableBody.addEventListener('click', (event) => {
+        event.preventDefault();
+        updateCartData(event.target.innerHTML);
+    })
+
+    cartForm.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.alert(`A kiválasztott könyvek értéke: ${sumTotal} Ft.`)
+    })
 })
