@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 tableBody.innerHTML = "";
                 data.forEach(renderTableRow);
+                data.forEach(row => { cart[row.id] = 0 });
             })
             .catch(handlError);
     }
@@ -68,23 +69,32 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     updateBooksData();
 
-    //const cart = [];
+    const cart = [];
+    let piece = 0;
     let sumTotal = 0;
 
     const renderCartRow = (element) => {
+        cart[element.id] += 1;
+        piece = cart[element.id];
+        if (piece > 1) {
+            row = document.getElementById(element.id);
+            row.outerHTML = "";
+        }
+
         sumTotal += Number(element.price);
-        const row = document.createElement('li');
+        row = document.createElement('li');
         row.className = "list-group-item d-flex justify-content-between align-items-center";
-        row.innerHTML = `<span>${element.title}</span><span>${element.price} Ft</span>`;
+        row.id = element.id;
+        row.innerHTML = `<span>${piece}</span><span>${element.title}</span><span>${element.price} Ft</span>`;
         cartList.appendChild(row);
+
     }
 
     const updateCartData = (id) => {
         fetch('http://localhost:3000/books')
             .then(response => response.json())
             .then(data => {
-                //cartList.innerHTML = "";
-                data.forEach(row => {if (row.id == id) renderCartRow(row)});
+                data.forEach(row => { if (row.id == id) renderCartRow(row) });
             })
             .catch(handlError);
     }
