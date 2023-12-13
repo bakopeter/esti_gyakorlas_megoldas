@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const renderTableRow = (element) => {
         const row = document.createElement('tr');
-        row.innerHTML = `<td><strong>${element.id}</strong></td><td>${element.title}</td><td>${element.author}</td><td>${element.year}</td><td>${element.price} Ft</td>`;
+        row.innerHTML = `<td><button type="button" class="btn btn-secondary" title="Kosárba!">
+        ${element.id}</button></td><td>${element.title}</td>
+        <td>${element.author}</td><td>${element.year}</td><td>${element.price} Ft</td>`;
         tableBody.appendChild(row);
     }
 
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(handlError);
     }
+
     addNewBook.addEventListener('submit', (event) => {
         event.preventDefault();
         let formData = new FormData(addNewBook);
@@ -38,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(updateBooksData())
             .catch(handlError)
         addNewBook.reset();
-    })
+    });
+
     updateBook.addEventListener('submit', (event) => {
         event.preventDefault();
         let formData = new FormData(updateBook);
@@ -52,7 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(updateBooksData())
             .catch(handlError)
         updateBook.reset();
-    })
+    });
+
     deleteBook.addEventListener('submit', (event) => {
         event.preventDefault();
         let formData = new FormData(deleteBook);
@@ -66,7 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(updateBooksData())
             .catch(handlError)
         deleteBook.reset();
-    })
+    });
+
     updateBooksData();
 
     const cart = [];
@@ -80,21 +86,20 @@ document.addEventListener('DOMContentLoaded', () => {
             row = document.getElementById(element.id);
             row.outerHTML = "";
         }
-
         sumTotal += Number(element.price);
         row = document.createElement('li');
         row.className = "list-group-item d-flex justify-content-between align-items-center";
         row.id = element.id;
-        row.innerHTML = `<span>${piece}</span><span>${element.title}</span><span>${element.price} Ft</span>`;
+        row.innerHTML = `<span>${piece} db</span>
+        <span>${element.author} ${element.title}</span><span>${element.price} Ft</span>`;
         cartList.appendChild(row);
-
     }
 
-    const updateCartData = (id) => {
+    const updateCartData = (lineId) => {
         fetch('http://localhost:3000/books')
             .then(response => response.json())
             .then(data => {
-                data.forEach(row => { if (row.id == id) renderCartRow(row) });
+                data.forEach(line => { if (line.id == lineId) renderCartRow(line) });
             })
             .catch(handlError);
     }
@@ -102,10 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
     tableBody.addEventListener('click', (event) => {
         event.preventDefault();
         updateCartData(event.target.innerHTML);
-    })
+        console.log(event.target.innerHTML);
+    });
 
     cartForm.addEventListener('click', (event) => {
         event.preventDefault();
         window.alert(`A kiválasztott könyvek értéke: ${sumTotal} Ft.`)
-    })
-})
+    });
+});
